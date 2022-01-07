@@ -4,17 +4,17 @@ LABEL maintainer="tomekmakuch"
 
 ENV PYTHONUBUFFERED 1
 
-COPY ./requirements.txt /requirements.txt
-COPY ./app /app
-
 WORKDIR /app
+
+COPY ./requirements.txt requirements.txt
+COPY ./app /app
 
 EXPOSE 8000
 
-RUN python -m venv py && \
-    /py/bin/pip3 install --upgrade pip && \
-    /py/bin/pip3 install -r requirements.txt && \
-    adduser --disabled-password --no-create=home app
+RUN python -m venv py
+RUN pip3 install --upgrade pip
+RUN pip3 install -r requirements.txt
+RUN adduser -D -H app
 
 ENV PATH="/py/bin:$PATH"
 
