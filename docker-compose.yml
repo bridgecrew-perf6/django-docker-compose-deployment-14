@@ -1,10 +1,10 @@
-version: '3.9'
+version: '3.3'
 
 services:
     app:
         build:
             context: .
-        posts:
+        ports:
             - 8000:8000
         volumes:
             - ./app:/app
