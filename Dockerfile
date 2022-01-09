@@ -18,6 +18,11 @@ RUN pip3 install -r requirements.txt
 RUN apk del .tmp-devs
 RUN adduser -D -H app
 
+RUN mkdir -p /vol/web/static && \
+    mkdir -p /vol/web/media && \
+    chown -R app:app /vol && \
+    chmod -R 755 /vol
+
 ENV PATH="/py/bin:$PATH"
 
 USER app
