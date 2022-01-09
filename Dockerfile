@@ -21,7 +21,7 @@ RUN adduser -D -H app
 RUN mkdir -p /vol/web/static && \
     mkdir -p /vol/web/media && \
     chown -R app:app /vol && \
-    chmod -R 755 /vol
+    chmod -R 0775 /vol
 
 ENV PATH="/py/bin:$PATH"
 
