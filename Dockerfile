@@ -4,10 +4,18 @@ LABEL maintainer="tomekmakuch"
 
 ENV PYTHONUBUFFERED 1
 
-WORKDIR /app
+RUN apk add nodejs && \
+    apk add npm
+
+ADD ./package.json package.json
+
+RUN npm install
+
+
+WORKDIR /code
 
 COPY ./requirements.txt requirements.txt
-COPY ./app /app
+COPY ./code /code
 COPY ./scripts /scripts
 
 EXPOSE 8000
@@ -24,7 +32,9 @@ RUN mkdir -p /vol/web/static && \
     chown app:app -R /vol && \
     chown app:app -R /vol/web && \
     chmod -R 0775 /vol && \
-    chmod -R +x /scripts
+    chmod -R +x /scripts && \
+    mkdir /logs && \
+    chown app:app /logs -R
 
 ENV PATH="/scripts:/py/bin:$PATH"
 

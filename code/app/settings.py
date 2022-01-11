@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'compressor',
+
     # 'psycopg2',
 ]
 
@@ -111,21 +113,73 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOG_FORMATTER = {
+    'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+    'datefmt': "%d/%b/%Y %H:%M:%S",
+}
+
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler'
+#         },
+#     },
+#     'loggers': {
+#         '': {
+#             'handlers': ['console'],
+#             'level': 'DEBUG',
+#         },
+#     },
+# }
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+        'standard': LOG_FORMATTER,
+    },
     'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler'
+        'error_file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': '/logs/error.log',
+            'formatter': 'standard',
         },
+        'task': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': '/logs/task.log',
+            'formatter': 'standard',
+        },
+        'debugging': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': '/logs/debugging.log',
+            'formatter': 'standard',
+        }
     },
     'loggers': {
-        '': {
-            'handlers': ['console'],
+
+        'task': {
+            'handlers': ['task'],
+            'propagate': False,
             'level': 'DEBUG',
+        },
+        'django.db': {
+            'level': 'WARNING',
+            'handlers': ['error_file'],
+            'propagate': False,
+        },
+        '': {
+            'handlers': ['debugging'],
+            'propagate': False,
+            'level': 'WARNING',
         },
     },
 }
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
