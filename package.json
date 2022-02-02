@@ -1,7 +1,7 @@
 {
-  "name": "Example app",
+  "name": "Django-docker-compose",
   "version": "1.0.0",
-  "description": "example app",
+  "description": "Django docker compose basic",
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.16.10",

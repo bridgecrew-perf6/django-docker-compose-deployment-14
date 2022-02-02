@@ -11,6 +11,10 @@ services:
                    python manage.py migrate &&
                    python manage.py runserver 0.0.0.0:8000
                    "
+        # command: >
+        #     sh -c "
+        #         tail -f /dev/null
+        #         "
         ports:
             - 8000:8000
         volumes:
@@ -30,4 +34,9 @@ services:
             - POSTGRES_DB=devdb
             - POSTGRES_USER=devuser
             - POSTGRES_PASSWORD=changeme
-
+        volumes:
+              - postgres_data:/var/lib/postgresql/data/
+volumes:
+  data01:
+    driver: local
+  postgres_data:
