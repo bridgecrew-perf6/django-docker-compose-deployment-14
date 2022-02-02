@@ -1,0 +1,15 @@
+{% extends "generic/base_offline.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Log In{% endblock title %}
+
+{% block content %}
+
+<div class="row account-form-container">
+	<div class="container">
+		<div class="col-lg-6">
+			<h1>Log In</h1>
+			{% crispy form %}
+		</div>
+	</div>
+</div>
+{%endblock content %}

@@ -15,8 +15,6 @@ RUN npm install
 WORKDIR /code
 
 COPY ./requirements.txt requirements.txt
-COPY ./code /code
-COPY ./scripts /scripts
 
 EXPOSE 8000
 
@@ -26,6 +24,9 @@ RUN apk add --update --no-cache --virtual .tmp-devs build-base postgresql-dev mu
 RUN pip3 install -r requirements.txt
 RUN apk del .tmp-devs
 RUN adduser -D -H app
+
+COPY ./code /code
+COPY ./scripts /scripts
 
 RUN mkdir -p /vol/web/static && \
     mkdir -p /vol/web/media && \

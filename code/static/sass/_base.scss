@@ -1,0 +1,46 @@
+// Basic rules that could be used on any page
+body {
+    background: $colorBackground;
+    color: $colorMainText;
+}
+
+
+.btn-primary {
+	background: $gradientBlue;
+	border-radius: 24px;
+	font-weight: bold;
+	border: none;
+	padding: 12px 54px;
+}
+
+
+
+h1, h2, h3, h4, h5, h6, p { color: $colorMainText; }
+
+.container {
+	width: 1170px;
+	margin: auto;
+}
+
+.menu {
+	background-color: grey;
+}
+.sp-navbar {
+	height: 30px;
+	.logo {
+		float: left;
+	}
+	.top-button {
+		float: right;
+		margin-top: 18px;
+
+	}
+	.main-logo {
+		width: 248px;
+		height: 78px;
+	}
+}
+
+.textfield-primary {
+    @extend .form-control;
+}

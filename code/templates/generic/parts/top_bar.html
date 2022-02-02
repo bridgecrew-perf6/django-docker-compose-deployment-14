@@ -1,0 +1,23 @@
+{% load static %}
+<header class="sp-navbar">
+	<div class="container">
+		<div class="logo">
+			<a href="{% url 'home'%}">
+				<img src="{% static 'images/public/logo.svg' %}" class="main-logo" />
+			</a>
+		</div>
+
+		<div class="top-button">
+
+			{% comment %}
+			{% if request.user.is_authenticated %}
+			<a href="{% url 'account_logout'%}" class="btn">Log Out</a>
+			{% else %}
+			<a href="{% url 'account_login'%}" class="btn">Log In</a>
+			<a href="{% url 'account_signup'%}" class="btn btn-primary">Sign Up</a>
+			{% endif %}
+			{% endcomment %}
+		</div>
+	</div>
+</header>
+<div class="clearfix"></div>

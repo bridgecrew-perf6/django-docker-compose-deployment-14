@@ -1,0 +1,17 @@
+// Only super generic classes here
+*{font-family: 'Montserrat', sans-serif;}
+
+.clearfix {
+	clear: both;
+}
+
+
+form {
+	.form-actions {
+		margin-top: 10px;
+	}
+}
+
+.help-inline {
+	color: $colorWarning;
+}

@@ -1,0 +1,34 @@
+// @import 'compass/css3';
+// @import 'compass/css3/transition';
+
+/*
+Bootstrap 4.0.0 has got issues with SASS compiler
+therefore not installing through NPM but added manually
+*/
+@import "../assets/bootstrap-4.0.0/scss/bootstrap";
+
+
+// Required
+// @import "../assets/bootstrap-4.0.0/scss/functions";
+// @import "../assets/bootstrap-4.0.0/scss/variables";
+// @import "../assets/bootstrap-4.0.0/scss/mixins";
+
+
+// @import "../assets/bootstrap-4.0.0/scss/reboot";
+// @import "../assets/bootstrap-4.0.0/scss/type";
+// @import "../assets/bootstrap-4.0.0/scss/images";
+// @import "../assets/bootstrap-4.0.0/scss/code";
+// @import "../assets/bootstrap-4.0.0/scss/grid";
+
+// Root
+@import 'variables';
+@import 'mixins';
+
+@import 'generic';
+@import 'base';
+
+@import 'modules';
+
+// Pages
+@import 'apps/index';
+@import 'apps/accounts';
