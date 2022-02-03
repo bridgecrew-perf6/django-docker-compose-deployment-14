@@ -2,3 +2,6 @@ Django>=3.2.3,<3.3
 psycopg2-binary>=2.9.3,<2.9.4
 uWSGI>=2.0.19.1,<2.1
 django-compressor==3.1
+ipdb>=0.13.9,<0.14
+python-dateutil>=2.8.2,<2.9
+user-agents>=2.2.0,<2.3

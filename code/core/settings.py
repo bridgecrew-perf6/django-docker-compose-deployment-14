@@ -38,6 +38,11 @@ ALLOWED_HOSTS.extend(
 
     )
 
+SECOND = 1
+MINUTE = 60 * SECOND
+HOUR = 60 * MINUTE
+DAY = 24 * HOUR
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -47,11 +52,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'apps.default',
     'compressor',
 
     # 'psycopg2',
 ]
+
+SITE_ID = 1
+
+DEFAULT_TITLE = 'Changeme'
+SITE_NAME = 'Changeme'
+DEFAULT_META_TITLE = 'Changeme'
+DEFAULT_META_DESCRIPTION = 'Changeme'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -78,6 +92,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'library.contextvars.context_data',
             ],
         },
     },
