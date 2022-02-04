@@ -12,6 +12,7 @@ services:
         # restart: always
         volumes:
             - static-data:/vol/web
+            - docker1-socks:/socks
         environment:
             - SECRET_KEY=devesecretkey
             - DB_HOST=db
@@ -47,7 +48,9 @@ services:
             - 80:8000
         volumes:
             - static-data:/vol/static
+            - docker1-socks:/socks
 
 volumes:
     test-postgres-data:
     static-data:
+    docker1-socks:
