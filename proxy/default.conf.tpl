@@ -1,5 +1,5 @@
 upstream django {
-    server unix:///code/socks/django.sock;
+    server unix:///socks/django.sock;
 
     #server 127.0.0.1:8000;
 }

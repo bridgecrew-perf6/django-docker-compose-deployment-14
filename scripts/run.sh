@@ -10,4 +10,4 @@ python manage.py migrate
 # uwsgi --socket :9000 --workers 4 --master --enable-threads --module core.wsgi
 
 # with sockets
-uwsgi --socket socks/django.sock --module core.wsgi --chmod-socket=666
+uwsgi --socket /socks/django.sock --master --module core.wsgi --chmod-socket=666

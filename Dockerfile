@@ -27,6 +27,7 @@ RUN adduser -D -H app
 
 COPY ./code /code
 COPY ./scripts /scripts
+COPY ./socks /socks
 
 RUN mkdir -p /vol/web/static && \
     mkdir -p /vol/web/media && \
@@ -36,8 +37,7 @@ RUN mkdir -p /vol/web/static && \
     chmod -R +x /scripts && \
     mkdir /logs && \
     chown app:app /logs -R && \
-    chown app:app /code/socks -R && \
-    chmod -R 0666 /code/socks
+    chmod 0777 /socks -R
 
 ENV PATH="/scripts:/py/bin:$PATH"
 
