@@ -35,7 +35,9 @@ RUN mkdir -p /vol/web/static && \
     chmod -R 0775 /vol && \
     chmod -R +x /scripts && \
     mkdir /logs && \
-    chown app:app /logs -R
+    chown app:app /logs -R && \
+    chown app:app /code/socks -R && \
+    chmod -R 0666 /code/socks
 
 ENV PATH="/scripts:/py/bin:$PATH"
 

@@ -6,4 +6,8 @@ python manage.py wait_for_db
 python manage.py collectstatic --noinput
 python manage.py migrate
 
-uwsgi --socket :9000 --workers 4 --master --enable-threads --module code.wsgi
+# with tcp/port
+# uwsgi --socket :9000 --workers 4 --master --enable-threads --module core.wsgi
+
+# with sockets
+uwsgi --socket socks/django.sock --module core.wsgi --chmod-socket=666

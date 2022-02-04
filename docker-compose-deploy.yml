@@ -2,6 +2,11 @@ version: '3.3'
 
 services:
     web:
+        # command: >
+        #     sh -c "
+        #         tail -f /dev/null
+        #         "
+
         build:
             context: .
         # restart: always
@@ -28,10 +33,10 @@ services:
             - POSTGRES_PASSWORD=changeme
             - PGDATA=/var/lib/postgresql/data/
     proxy:
-        command: >
-            sh -c "
-                tail -f /dev/null
-                "
+        # command: >
+        #     sh -c "
+        #         tail -f /dev/null
+        #         "
 
         build:
             context: ./proxy
