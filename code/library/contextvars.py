@@ -1,8 +1,7 @@
-from allauth.socialaccount.models import SocialApp
 from django.conf import settings
 from django.core.exceptions import PermissionDenied
 
-from library import logic, utils as lib_utils, global_vars
+from library import utils as lib_utils, global_vars
 
 from user_agents import parse
 import json
